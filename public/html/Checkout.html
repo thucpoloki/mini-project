@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán - T-Store</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="/lib/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/public/css/cart.css">
+    <link rel="stylesheet" href="/public/css/header.css">
+    <link rel="stylesheet" href="/public/css/footer.css">
+    <link rel="stylesheet" href="/public/css/Checkout.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/public/t-logo.png">
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="nav-menu"></div>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="checkout-title mb-4">
+                    <i class="fas fa-shopping-cart me-2"></i>Thanh toán đơn hàng
+                </h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Left Column - Shipping Info -->
+            <div class="col-lg-7 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Thông tin giao hàng</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="checkoutForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="fullName" class="form-label">Họ và tên <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="fullName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="address" class="form-label">Địa chỉ <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="address" placeholder="Số nhà, tên đường" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="city" class="form-label">Tỉnh/Thành phố <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="city" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="district" class="form-label">Quận/Huyện <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="district" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="ward" class="form-label">Phường/Xã <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="ward" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="notes" class="form-label">Ghi chú đơn hàng</label>
+                                    <textarea class="form-control" id="notes" rows="3" placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h4 class="mb-0"><i class="fas fa-credit-card me-2"></i>Phương thức thanh toán</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="checkout-payment-methods">
+                            <div class="form-check payment-option">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked>
+                                <label class="form-check-label" for="cod">
+                                    <i class="fas fa-money-bill-wave text-success"></i>
+                                    <strong>Thanh toán khi nhận hàng (COD)</strong>
+                                    <small class="d-block text-muted">Thanh toán bằng tiền mặt khi nhận hàng</small>
+                                </label>
+                            </div>
+                            <div class="form-check payment-option">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="bank" value="bank">
+                                <label class="form-check-label" for="bank">
+                                    <i class="fas fa-university text-primary"></i>
+                                    <strong>Chuyển khoản ngân hàng</strong>
+                                    <small class="d-block text-muted">Chuyển khoản qua ATM/Internet Banking</small>
+                                </label>
+                            </div>
+                            <div class="form-check payment-option">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="momo" value="momo">
+                                <label class="form-check-label" for="momo">
+                                    <i class="fas fa-wallet text-danger"></i>
+                                    <strong>Ví MoMo</strong>
+                                    <small class="d-block text-muted">Thanh toán qua ví điện tử MoMo</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Order Summary -->
+            <div class="col-lg-5">
+                <div class="card order-summary">
+                    <div class="card-header">
+                        <h4 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>Đơn hàng của bạn</h4>
+                    </div>
+                    <div class="card-body">
+                        <div id="orderItems" class="order-items">
+                            <!-- Order items will be rendered here -->
+                        </div>
+
+                        <div class="order-totals mt-4">
+                            <div class="total-row">
+                                <span>Tạm tính:</span>
+                                <span id="subtotal">0 đ</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Phí vận chuyển:</span>
+                                <span id="shipping">30.000 đ</span>
+                            </div>
+                            <div class="total-row total-final">
+                                <strong>Tổng cộng:</strong>
+                                <strong id="totalAmount" class="text-danger">0 đ</strong>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-checkout w-100 mt-4" id="placeOrderBtn">
+                            <i class="fas fa-check-circle me-2"></i>Đặt hàng
+                        </button>
+
+                        <div class="checkout-security mt-3">
+                            <i class="fas fa-shield-alt text-success me-2"></i>
+                            <small class="text-muted">Giao dịch được bảo mật và mã hóa</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="back-to-cart mt-3 text-center">
+                    <a href="/trangchu" class="text-decoration-none">
+                        <i class="fas fa-arrow-left me-2"></i>Tiếp tục mua sắm
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <!-- Bootstrap JS -->
+    <script src="/lib/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="/public/js/cart.js"></script>
+    <script src="/public/js/header.js"></script>
+    <script src="/public/js/footer.js"></script>
+    <script src="/public/js/Checkout.js"></script>
+</body>
+</html>

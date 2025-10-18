@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Store</title>
+    <link rel="stylesheet" href="../../lib/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../public/css/TrangChu.css">
+    <link rel="stylesheet" href="../../public/css/header.css">
+    <link rel="stylesheet" href="../../public/css/featured-carousel.css">
+    <link rel="stylesheet" href="../../public/css/cart.css">
+    <link rel="icon" type="image/png" href="../../public/t-logo.png">
+    <link rel="stylesheet" href="../../public/css/support.css">
+    <!-- Script -->
+    <script src="../../public/js/cart.js"></script>
+    <script src="../../public/js/home.js"></script>
+    <script src="../../public/js/header.js"></script>
+    <script src="../../public/js/footer.js"></script>
+    <script src="../../public/js/css-analyzer.js"></script>
+    <script src="../../lib/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../public/js/support.js"></script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <div id="nav-menu">
+            <!-- Nội dung menu điều hướng sẽ được chèn vào đây -->
+        </div>
+
+        <main class="container">
+            <!-- Section Book Carousel -->
+            <section class="book-carousel-section mb-5" id="featured-carousel">
+                <div class="title mt-3 mb-3">
+                    <span class="top-tab_title title_active">
+                        <i class="fas fa-star"></i> Nổi bật
+                    </span>
+                </div>
+                <div class="book-carousel">
+                    <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="featured-wrapper">
+                        <div class="featured-track" id="featured-books">
+                            <!-- Nội dung được render -->
+                        </div>
+                    </div>
+                    <div class="carousel-indicators" id="indicators">
+                        <!-- Dots được JS thêm -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Mới Nhập -->
+            <section class="moinhap">
+                <div class="title mt-3" style="width: 20%;">
+                    <span class="top-tab_title title_active">Mới nhập</span>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12">
+                        <div class="book-more" id="moinhap-list">
+                            <!-- Nội dung được render -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Khuyến Mãi -->
+            <section class="khuyenmai">
+                <div class="title mt-3" style="width: 20%;">
+                    <span class="top-tab_title title_active">Khuyến mãi</span>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12">
+                        <div class="book-more" id="khuyenmai-list">
+                            <!-- Nội dung được render -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <!-- Nội dung footer được chèn ở đây -->
+    </footer>
+
+</body>
+
+</html>

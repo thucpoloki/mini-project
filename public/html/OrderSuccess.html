@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt hàng thành công - T-Store</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="/lib/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/public/css/cart.css">
+    <link rel="stylesheet" href="/public/css/header.css">
+    <link rel="stylesheet" href="/public/css/footer.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/public/t-logo.png">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .success-container {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+        }
+        
+        .success-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #27ae60, #229954);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease;
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        .success-icon i {
+            font-size: 60px;
+            color: white;
+        }
+        
+        .success-card h1 {
+            color: #27ae60;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .success-card p {
+            color: #7f8c8d;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .order-info {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .order-info h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+        
+        .info-value {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            background: linear-gradient(135deg, #2980b9, #21618c);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+            color: white;
+        }
+        
+        .btn-secondary-custom {
+            background: white;
+            color: #3498db;
+            padding: 12px 30px;
+            border-radius: 10px;
+            border: 2px solid #3498db;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary-custom:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="nav-menu"></div>
+
+    <!-- Success Message -->
+    <div class="success-container">
+        <div class="container">
+            <div class="success-card">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                
+                <h1>Đặt hàng thành công!</h1>
+                <p>Cảm ơn bạn đã mua sắm tại T-Store. Đơn hàng của bạn đã được tiếp nhận và đang được xử lý.</p>
+                
+                <div class="order-info">
+                    <h3><i class="fas fa-clipboard-list me-2"></i>Thông tin đơn hàng</h3>
+                    <div class="info-row">
+                        <span class="info-label">Mã đơn hàng:</span>
+                        <span class="info-value" id="orderId">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Ngày đặt:</span>
+                        <span class="info-value" id="orderDate">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Tổng tiền:</span>
+                        <span class="info-value text-danger" id="orderTotal">-</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Trạng thái:</span>
+                        <span class="info-value">
+                            <span class="badge bg-warning text-dark">Đang xử lý</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Chúng tôi đã gửi email xác nhận đến địa chỉ của bạn. Vui lòng kiểm tra hộp thư để theo dõi đơn hàng.
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="/trangchu" class="btn-primary-custom">
+                        <i class="fas fa-home me-2"></i>Về trang chủ
+                    </a>
+                    <a href="/account" class="btn-secondary-custom">
+                        <i class="fas fa-user me-2"></i>Xem đơn hàng
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <!-- Bootstrap JS -->
+    <script src="/lib/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="/public/js/cart.js"></script>
+    <script src="/public/js/header.js"></script>
+    <script src="/public/js/footer.js"></script>
+    
+    <script>
+        // Get order ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('orderId');
+        
+        if (orderId) {
+            document.getElementById('orderId').textContent = 'ORD' + orderId;
+            
+            // Get order from localStorage
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            const order = orders.find(o => o.orderId === 'ORD' + orderId);
+            
+            if (order) {
+                const orderDate = new Date(order.orderDate);
+                document.getElementById('orderDate').textContent = orderDate.toLocaleDateString('vi-VN');
+                document.getElementById('orderTotal').textContent = order.total.toLocaleString('vi-VN') + ' đ';
+            }
+        }
+    </script>
+</body>
+</html>

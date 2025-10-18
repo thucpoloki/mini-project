@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - T-Store</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="/lib/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/public/css/Login.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/public/t-logo.png">
+</head>
+
+<body>
+    <!-- Background Slideshow -->
+    <div class="slideshow-container">
+        <div class="slide active">
+            <img src="/public/img/Logon/background.webp" alt="Background">
+        </div>
+        <div class="slide">
+            <img src="/public/img/Logon/sky.jpg" alt="Sky">
+        </div>
+        <div class="slide">
+            <img src="/public/img/Logon/dan huou.jpg" alt="Dan Huou">
+        </div>
+        <div class="slide">
+            <img src="/public/img/Logon/City.jpg" alt="City">
+        </div>
+        <div class="slide">
+            <img src="/public/img/Logon/streets.jpg" alt="Streets">
+        </div>
+    </div>
+
+    <!-- Slideshow Navigation -->
+    <div class="slideshow-nav">
+        <span class="nav-dot active" data-slide="0"></span>
+        <span class="nav-dot" data-slide="1"></span>
+        <span class="nav-dot" data-slide="2"></span>
+        <span class="nav-dot" data-slide="3"></span>
+        <span class="nav-dot" data-slide="4"></span>
+    </div>
+
+    <!-- Main Login Container -->
+    <div class="container-fluid vh-100 d-flex align-items-center justify-content-center login-overlay">
+                <!-- Login Form -->
+                <div class="card login-card " id="login-form">
+                    <div class="card-body p-4">
+                        <!-- Header -->
+                        <div class="text-center mb-4">
+                            <h2 class="brand-title">T-Store</h2>
+                            <p class="text-muted">Chào mừng bạn đến với chúng tôi</p>
+                        </div>
+
+                        <!-- Login Form -->
+                        <form>
+                            <!-- Username -->
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Tên đăng nhập</label>
+                                <input type="text" class="form-control form-control-sm" id="username" required>
+                                <div class="invalid-feedback" id="login-err-username"></div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Mật khẩu</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control form-control-sm" id="password" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="invalid-feedback" id="login-err-password"></div>
+                            </div>
+
+                            <!-- Remember me -->
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Ghi nhớ đăng nhập
+                                </label>
+                            </div>
+
+                            <!-- Notification -->
+                            <div class="alert d-none" id="login-notification" role="alert"></div>
+
+                            <!-- Submit Button -->
+                            <button type="button" class="btn btn-primary btn-lg w-100 mb-4" id="login-btn">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                Đăng nhập
+                            </button>
+                        </form>
+
+                        <!-- Social Login -->
+                        <div class="social-login mb-4">
+                            <div class="divider mb-3">
+                                <span class="divider-text">Hoặc đăng nhập bằng</span>
+                            </div>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#" class="btn btn-outline-secondary btn-social google-btn" title="Đăng nhập với Google">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-social facebook-btn" title="Đăng nhập với Facebook">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-social apple-btn" title="Đăng nhập với Apple">
+                                    <i class="fab fa-apple"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary btn-social twitter-btn" title="Đăng nhập với X">
+                                    <i class="fab fa-x-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Footer Links -->
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="text-decoration-none" id="show-register">Đăng ký</a>
+                            <a href="/trangchu" class="text-decoration-none">Về trang chủ</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div class="card login-card d-none" id="register-form">
+                    <div class="card-body p-4">
+                        <!-- Header -->
+                        <div class="text-center mb-4">
+                            <h2 class="brand-title">T-Store</h2>
+                            <p class="text-muted">Tạo tài khoản mới</p>
+                        </div>
+
+                        <!-- Register Form -->
+                        <form>
+                            <!-- Username -->
+                            <div class="mb-3">
+                                <label for="reg-username" class="form-label">Tên đăng nhập</label>
+                                <input type="text" class="form-control form-control-lg" id="reg-username" required>
+                                <div class="invalid-feedback" id="errtendangnhap"></div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label for="reg-email" class="form-label">Email</label>
+                                <input type="email" class="form-control form-control-lg" id="reg-email" required>
+                                <div class="invalid-feedback" id="erremail"></div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="mb-3">
+                                <label for="reg-password" class="form-label">Mật khẩu</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control form-control-lg" id="reg-password" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="toggleRegPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="invalid-feedback" id="errmatkhau"></div>
+                            </div>
+
+                            <!-- Confirm Password -->
+                            <div class="mb-3">
+                                <label for="reg-confirm-password" class="form-label">Xác nhận mật khẩu</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control form-control-lg" id="reg-confirm-password" required>
+                                    <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="invalid-feedback" id="errmatkhauconfirm"></div>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                                <label class="form-check-label" for="agreeTerms">
+                                    Tôi đồng ý với <a href="#" class="text-decoration-none">điều khoản sử dụng</a>
+                                </label>
+                            </div>
+
+                            <!-- Notification -->
+                            <div class="alert d-none" id="register-notification" role="alert"></div>
+
+                            <!-- Submit Button -->
+                            <button type="button" class="btn btn-success w-100 mb-3" id="register-btn">
+                                <i class="fas fa-user-plus me-2"></i>
+                                Tạo tài khoản
+                            </button>
+                        </form>
+
+                        <!-- Footer Links -->
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="text-decoration-none" id="show-login">Đăng nhập</a>
+                            <a href="/trangchu" class="text-decoration-none">Về trang chủ</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="/lib/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/public/js/Login.js"></script>
+</body>
+</html>

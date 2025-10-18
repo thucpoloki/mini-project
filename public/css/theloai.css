@@ -1,0 +1,142 @@
+/* theloai.css - Chỉ chứa styles riêng cho trang thể loại */
+
+/* Genre Header - Đặc trưng riêng cho trang thể loại */
+.genre-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.genre-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="books" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M2 2h4v16H2V2zm6 0h4v16H8V2zm6 0h4v16h-4V2z" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23books)"/></svg>') repeat;
+    opacity: 0.1;
+}
+
+.genre-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.7);
+    content: "›";
+    font-size: 1.2em;
+}
+
+.breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: white;
+}
+
+.breadcrumb-item.active {
+    color: white;
+    font-weight: 500;
+}
+
+/* Genre Title */
+#genre-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#genre-description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Filter Container - Đặc trưng cho trang thể loại */
+.filter-container {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.sort-select {
+    border-radius: 6px;
+    border: 1px solid #333;
+    padding: 0.5rem 0.75rem;
+    background: #2a2a2a;
+    color: white;
+    transition: border-color 0.3s ease;
+}
+
+.sort-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    background: #2a2a2a;
+    color: white;
+}
+
+.books-count {
+    background: #667eea;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Responsive cho Genre Header */
+@media (max-width: 992px) {
+    .genre-header {
+        padding: 2rem 0;
+    }
+    
+    #genre-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-container {
+        padding: 1rem;
+    }
+    
+    .filter-container .row > div {
+        margin-bottom: 1rem;
+    }
+    
+    .books-count {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .genre-header {
+        padding: 1.5rem 0;
+    }
+    
+    #genre-title {
+        font-size: 1.75rem;
+    }
+    
+    #genre-description {
+        font-size: 1rem;
+    }
+}

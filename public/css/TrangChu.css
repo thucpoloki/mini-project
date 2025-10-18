@@ -1,0 +1,332 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Ngăn tràn ngang */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+
+.book-item {
+    width: 100%;
+    /* chiếm hết 1 ô grid */
+    height: 100%;
+    /* optional: cho cân */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-item img {
+    width: 100%;
+    /* khớp theo ô grid */
+    height: 300px;
+    /* giữ chiều cao đồng nhất */
+    object-fit: cover;
+    /* không méo ảnh */
+    display: block;
+    margin: 0 auto;
+}
+
+.book-info {
+    margin-top: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.book-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 3px 0; /* Responsive margin ở trên và dưới */
+    gap: 5px;
+}
+
+.price {
+    font-size: 14px;
+    color: white;
+}
+
+.book-price .original-price {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.book-price .discount {
+    font-size: 12px;
+    color: white;
+    background-color: #e74c3c;
+    padding: 2px 6px;
+    border-radius: 5px;
+}
+
+/* Book Actions - Buttons Container */
+.book-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+/* Add to Cart Button - Icon Only */
+.add-to-cart-btn {
+    background: transparent;
+    border: 2px solid #3498db;
+    color: #3498db;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.add-to-cart-btn:hover {
+    background: #3498db;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(52, 152, 219, 0.3);
+}
+
+/* Add to Cart Button - Added Animation */
+.add-to-cart-btn.added {
+    background: #27ae60;
+    border-color: #27ae60;
+    color: white;
+    animation: cartPulse 0.6s ease;
+}
+
+@keyframes cartPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Buy Button - Enhanced with Border Style */
+.buy-btn {
+    background: transparent;
+    color: #3498db;
+    border: 2px solid #2980b9;
+    padding: 3px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.buy-btn:hover {
+    background: #2980b9;
+    border-color: #2980b9;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(41, 128, 185, 0.5);
+}
+
+.buy-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(41, 128, 185, 0.3);
+}
+
+.book-more {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+/* Carousel wrapper - overflow hidden để che hai bên */
+.featured-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 400px; /* Chiều cao phù hợp với book-item */
+    margin: 0 auto;
+    padding: 0; /* Đảm bảo không padding ảnh hưởng width */
+    box-sizing: border-box;
+}
+
+/* Track cho slide - flex ngang, transition mượt */
+.featured-track {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+    width: max-content; /* Chứa tất cả sách ngang tràn */
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Easing mượt từ phải sang trái */
+    padding: 0 60px; /* Space cho nút control hai bên */
+    will-change: transform; /* Tối ưu performance animation */
+    box-sizing: border-box;
+}
+
+/* Book item trong carousel - width chính xác cho 6 sách visible, slide từng 1 */
+.featured-track .book-item {
+    flex: 0 0 calc( (100% - 100px) / 6 ); /* Chính xác: 100% - 5 gaps(100px) / 6 items */
+    max-width: calc( (100% - 100px) / 6 );
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Book image trong carousel - full height */
+.featured-track .book-image {
+    height: 300px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.book-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay-info {
+    position: absolute;
+    bottom: -38px;
+    left: 0;
+    width: 100%;
+    height: 39px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: bottom 0.25s ease-in-out;
+}
+
+.book-item:hover .overlay-info {
+    bottom: 0px;
+}
+
+.overlay-info .info-btn {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+
+/* Controls - absolute position, hover scale */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.carousel-control:hover:not(:disabled) {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: translateY(-50%) scale(1);
+}
+
+/* Indicators dots dưới carousel */
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+    padding: 0;
+    list-style: none;
+}
+
+.indicator.active,
+.indicator:hover {
+    background: #ffd700;
+    transform: scale(1.2);
+}
+
+.book-item {
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+
+.top-tab_title.title_active {
+    color: #ffd700;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.top-tab_title.title_active:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - T-Store</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="../../lib/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/public/css/cart.css">
+    <link rel="stylesheet" href="/public/css/TrangChu.css">
+    <link rel="stylesheet" href="/public/css/header.css">
+    <link rel="stylesheet" href="/public/css/footer.css">
+    <link rel="stylesheet" href="/public/css/product-detail.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="nav-menu">
+        <!-- Nội dung menu điều hướng sẽ được chèn vào đây -->
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="#" id="genre-breadcrumb">Thể loại</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page" id="book-breadcrumb">Chi tiết sách</li>
+            </ol>
+        </nav>
+
+        <!-- Product Detail -->
+        <div class="row" id="product-detail-container">
+            <!-- Loading State -->
+            <div class="col-12 text-center" id="loading-container">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Đang tải...</span>
+                </div>
+                <p class="mt-2">Đang tải thông tin sách...</p>
+            </div>
+        </div>
+        <!-- Related Products Section -->
+        <section class="related-products mt-5" id="related-products-section" style="display: none;">
+            <div class="section-header mb-4">
+                <h2 class="section-title">
+                    <i class="fas fa-book-open me-2"></i>
+                    Sách theo thể loại
+                </h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="row" id="related-books-container">
+                <!-- Related books will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../../lib/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="/public/js/header.js"></script>
+    <script src="/public/js/footer.js"></script>
+    <script src="/public/js/product-detail.js"></script>
+    <script src="/public/js/cart.js"></script>
+</body>
+</html>

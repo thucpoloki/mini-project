@@ -1,0 +1,318 @@
+/* Nền tùy chỉnh cho footer - tạo nền gradient tối cho phần footer */
+.footer-bg-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    padding: 3rem 0 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #404040;
+}
+
+/* Thiết kế các liên kết mạng xã hội - tạo hình tròn với hiệu ứng hover */
+.social-link {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+/* Thiết kế icon cho các liên kết mạng xã hội */
+.social-link i {
+    font-size: 1.2rem;
+    color: white;
+    z-index: 2;
+    position: relative;
+}
+
+/* Thiết kế liên kết Facebook với màu xanh đặc trưng */
+.facebook-link {
+    background: linear-gradient(135deg, #1877f2, #42a5f5);
+    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.3);
+}
+
+.facebook-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
+    border-color: rgba(24, 119, 242, 0.5);
+}
+
+/* Thiết kế liên kết YouTube với màu đỏ đặc trưng */
+.youtube-link {
+    background: linear-gradient(135deg, #ff0000, #ff6b6b);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.youtube-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+    border-color: rgba(255, 0, 0, 0.5);
+}
+
+/* Thiết kế liên kết TikTok với hiệu ứng gradient đặc biệt */
+.tiktok-link {
+    background: #000000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    border: 0px;
+}
+
+/* TikTok hover effect - Direct class targeting */
+.tiktok-link:hover {
+    background: linear-gradient(45deg, #00f2ea 0%, #ff0050 100%);
+    box-shadow: 0 0 15px rgba(0, 242, 234, 0.5);
+    transform: translateY(-3px) scale(1.1);
+    border-color: rgba(0, 242, 234, 0.6);
+}
+
+.tiktok-link:hover i {
+    color: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Thiết kế liên kết Discord với màu tím đặc trưng */
+.discord-link {
+    background: linear-gradient(135deg, #5865f2, #7289da);
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+}
+
+.discord-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.4);
+    border-color: rgba(88, 101, 242, 0.5);
+}
+
+/* Điều chỉnh responsive cho các liên kết mạng xã hội trên màn hình tablet */
+@media (max-width: 768px) {
+    .social-link {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-link i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-link {
+        width: 35px;
+        height: 35px;
+    }
+
+    .social-link i {
+        font-size: 0.9rem;
+    }
+}
+
+/* Thiết kế các phần của footer với hiệu ứng nâng cao */
+.footer-section {
+    padding: 1.5rem 0;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.footer-section h3::after,
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b35, #f7931e);
+    border-radius: 1px;
+}
+
+/* Thiết kế các liên kết điều hướng với hiệu ứng hover */
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li {
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.footer-nav li:hover {
+    transform: translateX(5px);
+}
+
+.footer-nav a {
+    color: #b8b8b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-nav a:hover {
+    color: #ffffff;
+}
+
+.footer-nav a::before {
+    content: '›';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    color: #ff6b35;
+}
+
+.footer-nav li:hover a::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Thiết kế các phương thức thanh toán với hiệu ứng hover */
+.payment-methods {
+    margin-top: 1.5rem;
+}
+
+.payment-methods img {
+    height: 35px;
+    background-color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin: 0 8px 8px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.payment-methods img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Thiết kế thông tin công ty với hiệu ứng backdrop blur */
+.company-info {
+    padding: 1.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 1rem;
+}
+
+.company-info h3 {
+    color: #ffffff;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.company-info p {
+    color: #e0e0e0;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Thiết kế phần theo dõi chúng tôi với hiệu ứng backdrop blur */
+.follow-us-section {
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.follow-us-section h3 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Thiết kế phần cuối của footer với thông tin bản quyền */
+.footer-bottom {
+    border-top: 1px solid #404040;
+    padding-top: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Bootstrap component overrides with footer prefix */
+footer .container-fluid {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Add footer prefix to Bootstrap text utilities to avoid conflicts */
+footer .text-white {
+    color: #ffffff !important;
+}
+
+footer .text-decoration-none {
+    text-decoration: none !important;
+}
+
+footer .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+/* Cải thiện responsive cho các thiết bị di động và tablet */
+@media (max-width: 991.98px) {
+    .footer-bg-dark {
+        padding: 2.5rem 0 2rem;
+    }
+
+    .footer-section {
+        padding: 1.5rem 0;
+        text-align: center;
+    }
+
+    .footer-section h3::after,
+    .footer-section h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .footer-bg-dark {
+        padding: 2rem 0 1.5rem;
+    }
+
+    .footer-section {
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .company-info,
+    .follow-us-section {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .footer-bg-dark {
+        padding: 1.5rem 0 1rem;
+    }
+
+    .company-info,
+    .follow-us-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-section {
+        padding: 0.75rem 0;
+    }
+}

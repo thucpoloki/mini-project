@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả tìm kiếm - T-Store</title>
+    <link rel="stylesheet" href="../../lib/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../public/css/TrangChu.css">
+    <link rel="stylesheet" href="../../public/css/header.css">
+    <link rel="stylesheet" href="../../public/css/search-results.css">
+    <link rel="stylesheet" href="../../public/css/cart.css">
+    <link rel="icon" type="image/png" href="../../public/t-logo.png">
+    <!-- Script -->
+    <script src="../../public/js/cart.js"></script>
+    <script src="../../public/js/search-results.js"></script>
+    <script src="../../public/js/header.js"></script>
+    <script src="../../public/js/footer.js"></script>
+    <script src="../../lib/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <div id="nav-menu">
+            <!-- Nội dung menu điều hướng sẽ được chèn vào đây -->
+        </div>
+
+        <main class="container">
+            <!-- Search Results Header -->
+            <section class="search-header-section mt-4 mb-4">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="search-title">
+                            <i class="fas fa-search"></i> 
+                            Kết quả tìm kiếm cho: "<span id="search-query"></span>"
+                        </h2>
+                        <p class="search-meta">
+                            Tìm thấy <span id="results-count">0</span> kết quả
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filter and Sort Section -->
+            <section class="filter-section mb-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="filter-group">
+                            <label for="category-filter" class="form-label">Thể loại:</label>
+                            <select id="category-filter" class="form-select">
+                                <option value="">Tất cả thể loại</option>
+                                <option value="Văn học">Văn học</option>
+                                <option value="Tiểu thuyết">Tiểu thuyết</option>
+                                <option value="Truyện tranh">Truyện tranh</option>
+                                <option value="Sách kinh tế">Sách kinh tế</option>
+                                <option value="Tâm lý - Kỹ năng sống">Tâm lý - Kỹ năng sống</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="sort-group">
+                            <label for="sort-select" class="form-label">Sắp xếp theo:</label>
+                            <select id="sort-select" class="form-select">
+                                <option value="relevance">Độ phù hợp</option>
+                                <option value="title">Tên sách (A-Z)</option>
+                                <option value="author">Tác giả (A-Z)</option>
+                                <option value="price-low">Giá thấp đến cao</option>
+                                <option value="price-high">Giá cao đến thấp</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search Results Grid -->
+            <section class="search-results-section">
+                <div class="row" id="search-results-grid">
+                    <!-- Kết quả tìm kiếm sẽ được render ở đây -->
+                </div>
+                
+                <!-- No Results Message -->
+                <div id="no-results" class="text-center py-5" style="display: none;">
+                    <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                    <h4 class="text-muted">Không tìm thấy kết quả nào</h4>
+                    <p class="text-muted">Hãy thử tìm kiếm với từ khóa khác hoặc kiểm tra lại chính tả</p>
+                    <a href="/trangchu" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Về trang chủ
+                    </a>
+                </div>
+            </section>
+
+            <!-- Pagination -->
+            <section class="pagination-section mt-5 mb-5">
+                <nav aria-label="Search results pagination">
+                    <ul class="pagination justify-content-center" id="search-pagination">
+                        <!-- Pagination sẽ được render ở đây -->
+                    </ul>
+                </nav>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <div id="footer-container">
+            <!-- Footer content sẽ được chèn vào đây -->
+        </div>
+    </div>
+
+    <!-- Cart Sidebar Modal -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h5>Giỏ hàng</h5>
+            <button class="cart-close" onclick="ShoppingCart.toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-content">
+            <div id="cart-items"></div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <strong>Tổng cộng: <span id="cart-total">0đ</span></strong>
+                </div>
+                <div class="cart-actions">
+                    <button onclick="ShoppingCart.clearCart()" class="btn btn-outline-danger btn-sm">
+                        <i class="fas fa-trash"></i> Xóa tất cả
+                    </button>
+                    <a href="/checkout" class="btn btn-primary btn-sm">
+                        <i class="fas fa-credit-card"></i> Thanh toán
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize components
+            renderNavbar();
+            renderFooter();
+            initializeSearchResults();
+            
+            // Initialize cart
+            if (typeof ShoppingCart !== 'undefined') {
+                ShoppingCart.init();
+            }
+        });
+    </script>
+</body>
+
+</html>
